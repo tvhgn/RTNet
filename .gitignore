@@ -1,3 +1,4 @@
 venv/
+klad.ipynb
 results/pretrained_models/model*
 data/Bayesian_models/model*

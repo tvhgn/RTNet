@@ -3,8 +3,10 @@ The preprint of the paper is avilable [here](https://www.biorxiv.org/content/10.
 
 ## Note from Tom 
 You can download my trained models (using pretrained AlexNet) from: https://1drv.ms/f/s!AvS3REhgQw0Rt_RXFLhokt5UclKAaQ?e=QxYH5t
+Store it under results/pretrained_models/
 
-For the simulation data (using RTNet.ipynb) I used model01 from the OSF page (see below). 
+For the simulation data (using RTNet.ipynb) I used model_01.pt and model_01_params.pt from the OSF page (see below). 
+Store it under data/Bayesian_models/
 
 ## Rest of README is from Rafiei et al.
 

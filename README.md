@@ -1,6 +1,13 @@
 # RTNet: A neural network that exhibits the signatures of human perceptual decision making
 The preprint of the paper is avilable [here](https://www.biorxiv.org/content/10.1101/2022.08.23.505015v2.abstract).
 
+## Note from Tom 
+You can download my trained models (using pretrained AlexNet) from: https://1drv.ms/f/s!AvS3REhgQw0Rt_RXFLhokt5UclKAaQ?e=QxYH5t
+
+For the simulation data (using RTNet.ipynb) I used model01 from the OSF page (see below). 
+
+## Rest of README is from Rafiei et al.
+
 ## Requirments
 The files in this repository should be run on Google Colab. All dependencies will be automatically taken care of when running the code on Colab. 
 

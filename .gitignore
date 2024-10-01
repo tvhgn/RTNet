@@ -1,1 +1,3 @@
 venv/
+results/pretrained_models/model*
+data/Bayesian_models/model*

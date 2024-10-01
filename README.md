@@ -8,6 +8,10 @@ Store it under results/pretrained_models/
 For the simulation data (using RTNet.ipynb) I used model_01.pt and model_01_params.pt from the OSF page (see below). 
 Store it under data/Bayesian_models/
 
+Most of the code is from Rafiei et al. (2024). I made changes here and there to accommodate a different file hierarchy and the corresponding file handling. The file train_pretrained_AlexNet.ipynb is similar to train.ipynb with the important difference that I am using a pre-trained AlexNet instead of training the network from scratch. This is the file that I am having difficulty with. I think perhaps the parameters are not stored correctly after training, which would explain why it looks good during training but not when evaluating. However, the method Rafiei are using (with the random_module function) is a bit unfamiliar to me (it is an outdated function that the current Pyro tutorials are not addressing) and I am trying to figure out what is going on there. 
+
+There are also R-related files that I used to do analysis on simulated data created with RTNet.ipynb. 
+
 ## Rest of README is from Rafiei et al.
 
 ## Requirments

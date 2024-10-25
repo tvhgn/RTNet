@@ -1,0 +1,14 @@
+model{
+  # Likelihood
+  for (i in 1:n){
+    y[i] ~ dbern(theta[i])
+    logit(theta[i]) <- b0+b1*x1[i]+b2*x2[i] + b3*(x1[i]*x2[i])
+  }
+  
+  # prior
+  b0 ~ dnorm(0, 0.0001)
+  b1 ~ dnorm(0, 0.0001)
+  b2 ~ dnorm(0, 0.0001)
+  b3 ~ dnorm(0, 0.0001)
+  
+}

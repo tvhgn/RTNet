@@ -14,7 +14,7 @@ theme_set(theme_apa())
 RTNet_models <- c("01", "36")
 
 # Pick threshold to filter
-th <- 3
+th <- 5
 # Color parameters
 color_begin <- 0.2
 color_end <- 0.85
@@ -71,6 +71,23 @@ ridges_outcome <- df %>%
     ylab("Evidence level")
 # Display the plots
 print(ridges_outcome)
+
+# Show distribution of RT
+ggplot(data=df, aes(x=rt, fill=model)) +
+  geom_histogram(color='black',alpha=1, position='dodge') + 
+  scale_fill_viridis_d(option="inferno", begin=color_begin, end=color_end) +
+  xlab("RT") + 
+  ylab("Frequency") +
+  labs(fill="Model")
+
+# RT histogram by decision outcome
+ggplot(data=df, aes(x=rt, fill=correct)) +
+  geom_histogram(color='black',alpha=1, position='dodge') + 
+  scale_fill_viridis_d(option="inferno", begin=color_begin, end=color_end) +
+  xlab("RT") + 
+  ylab("Frequency") +
+  labs(fill="Decision") + 
+  facet_wrap(~model)
 
 # Create function for getting the statistics
 get_summary_stats <- function(data){
@@ -273,7 +290,6 @@ ggplot(data=plot_data_sample, aes(x=confidence, y=rt, color=model)) +
 
 
 
-# TODO: RT distribution
 
 
 

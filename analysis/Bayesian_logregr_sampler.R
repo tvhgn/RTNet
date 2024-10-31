@@ -13,16 +13,16 @@ RTNet_models <- c("01", "36")
 mod <- RTNet_models[1]
 
 # Pick threshold to filter
-th <- 3
+th <- 5
 
 # Load datafiles
-df1 <- read.csv(file.path("results", paste("model_",RTNet_models[1],"_evidence_level_sims.csv", sep=""))) %>%
+df1 <- read.csv(file.path("..", "results", paste("model_",RTNet_models[1],"_evidence_level_sims.csv", sep=""))) %>%
   mutate(model=RTNet_models[1]) %>%
   filter(threshold==th) %>%
   # Create column with binary confidence level
   mutate(confidence_group=ifelse(confidence <= median(confidence), 0, 1))
 
-df2 <- read.csv(file.path("results", paste("model_",RTNet_models[2],"_evidence_level_sims.csv", sep=""))) %>%
+df2 <- read.csv(file.path("..", "results", paste("model_",RTNet_models[2],"_evidence_level_sims.csv", sep=""))) %>%
   mutate(model=RTNet_models[2]) %>%
   filter(threshold==th) %>%
   # Create column with binary confidence level
@@ -56,12 +56,13 @@ modelString <- "model{
   b3 ~ dnorm(0, 0.0001)
   
 }"
-model_path <- file.path("data", "JAGS", "log_reg_model_conf_levels.txt")
+model_path <- file.path("..","data", "JAGS", "log_reg_model_conf_levels.txt")
 writeLines(modelString, model_path)
 
 # Prepare data
 data_sample <- data_sample %>%
   filter(model==mod) # Filter by model, adjust as necessary
+
 # Prepare datalist for JAGS
 dataList <- list(y=as.numeric(data_sample$correct),
                  x1=data_sample$evidence,
@@ -82,7 +83,7 @@ burnin <- 1000
 nAdapt <- 1000
 
 # Path to model (use either for saving or loading)
-jags_model_path <- file.path("data", "JAGS", paste("model_",mod,"_jags_output_th_", th, ".RData", sep=""))
+jags_model_path <- file.path("..","data", "JAGS", paste("model_",mod,"_jags_output_th_", th, ".RData", sep=""))
 
 # Run model or load previous model
 

@@ -9,3 +9,6 @@ data/mnist-data
 .vscode/launch.json
 .RData
 */__pycache__
+data/JAGS/*
+data/JAGS/model_01_jags_output_th_5.RData
+modules/AlexNet/classes/__pycache__/*

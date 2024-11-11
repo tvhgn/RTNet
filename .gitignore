@@ -3,6 +3,9 @@ klad.ipynb
 results/pretrained_models/model*
 data/Bayesian_models/model*
 data/AlexNet/*
+data/cifar-data
+data/mnist-data
 .Rproj.user
 .vscode/launch.json
 .RData
+*/__pycache__

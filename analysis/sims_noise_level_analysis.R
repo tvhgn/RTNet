@@ -14,7 +14,7 @@ theme_set(theme_apa())
 RTNet_models <- c("01", "36")
 
 # Pick threshold to filter
-th <- 5
+th <- 3
 # Color parameters
 color_begin <- 0.2
 color_end <- 0.85
@@ -159,7 +159,16 @@ sampled_data <- df %>%
   left_join(data_summary$by_decision %>% select(model, evidence, acc), by = c("model","evidence"))
   
 
-# Create a combined plot for all models 
+# Evidence level vs confidence overall
+ggplot(data_summary$by_evidence, aes(x=evidence, y=mean_conf))+
+  geom_line() +
+  geom_errorbar(aes(ymin=mean_conf-sem_conf, ymax=mean_conf+sem_conf, width=.025)) +
+  xlab("Evidence level") +
+  ylab("Confidence") +
+  facet_wrap(~model)
+
+
+# Create a combined plot for all models Evidence - Confidence
 ggplot(data=data_summary$by_decision, aes(x=evidence, y=mean_conf, color = correct)) +
   geom_errorbar(aes(ymin=mean_conf-sem_conf, ymax=mean_conf+sem_conf, width=.025)) +
   geom_line() +
